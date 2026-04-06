@@ -4,163 +4,176 @@ _Generated in: 2026-04-06_
 
 ## Metrics
 From the given csv file, the following metrics were obtained:
-- Total of processed books (rows): 36
-- Total of added books: 29
-- Total of discarded books: 2
-- Total of duplicated and discarded books: 4
-- Duplicated books used to enrich previously registered books: 1
+- **Total of processed books (rows):** _37_
+- **Total of added books:** _30_
+- **Total of discarded books:** _4_
+- **Total of duplicated and discarded books:** _4_
+- **Duplicated books used to enrich previously registered books:** _1_
+
+## Books catalog
+- **Title:** _Cien años de soledad_ **- Author:** _Gabriel García Márquez_ **- Publication Year:** _1967_
+- **Title:** _e_ **- Author:** _Author Unknown_ **- Publication Year:** _Unknown_
+- **Title:** _El Aleph_ **- Author:** _Jorge Luis Borges_ **- Publication Year:** _1945_
+- **Title:** _1984_ **- Author:** _George Orwell_ **- Publication Year:** _1949_
+- **Title:** _The Republic_ **- Author:** _Plato_ **- Publication Year:** _Unknown_
+- **Title:** _Ficciones_ **- Author:** _Jorge Luis Borges_ **- Publication Year:** _1944_
+- **Title:** _Rayuela_ **- Author:** _Julio Cortázar_ **- Publication Year:** _1963_
+- **Title:** _Don Quijote de la Mancha_ **- Author:** _Miguel de Cervantes_ **- Publication Year:** _1605_
+- **Title:** _Guía del autoestopista galáctico_ **- Author:** _Author Unknown_ **- Publication Year:** _1979_
+- **Title:** _Fundación_ **- Author:** _Isaac Asimov_ **- Publication Year:** _Unknown_
+- **Title:** _El resplandor_ **- Author:** _Stephen King_ **- Publication Year:** _Unknown_
+- **Title:** _Neuromante_ **- Author:** _William Gibson_ **- Publication Year:** _1984_
+- **Title:** _Snow Crash_ **- Author:** _Neal Stephenson_ **- Publication Year:** _Unknown_
+- **Title:** _I Robot_ **- Author:** _Isaac Asimov_ **- Publication Year:** _1950_
+- **Title:** _La ciudad y los perros_ **- Author:** _Mario Vargas Llosa_ **- Publication Year:** _Unknown_
+- **Title:** _Crónica de una muerte anunciada_ **- Author:** _Gabriel García Márquez_ **- Publication Year:** _1981_
+- **Title:** _Solaris_ **- Author:** _Stanislaw Lem_ **- Publication Year:** _2025_
+- **Title:** _Moby Dick_ **- Author:** _Herman Melville_ **- Publication Year:** _1851_
+- **Title:** _The Hobbit_ **- Author:** _J.R.R. Tolkien_ **- Publication Year:** _1937_
+- **Title:** _Kafka on the Shore_ **- Author:** _Author Unknown_ **- Publication Year:** _2002_
+- **Title:** _Discurso del método_ **- Author:** _René Descartes_ **- Publication Year:** _1637_
+- **Title:** _Meditaciones metafísicas_ **- Author:** _René Descartes_ **- Publication Year:** _1641_
+- **Title:** _Ensayo sobre la ceguera_ **- Author:** _Author Unknown_ **- Publication Year:** _1995_
+- **Title:** _The Left Hand of Darkness_ **- Author:** _Ursula K. Le Guin_ **- Publication Year:** _1969_
+- **Title:** _Do Androids Dream of Electric Sheep?_ **- Author:** _Philip K. Dick_ **- Publication Year:** _1968_
+- **Title:** _Frankenstein_ **- Author:** _Mary Shelley_ **- Publication Year:** _1818_
+- **Title:** _Drácula_ **- Author:** _Bram Stoker_ **- Publication Year:** _1897_
+- **Title:** _j_ **- Author:** _Julio Robert_ **- Publication Year:** _1900_
+- **Title:** _Juanza_ **- Author:** _Robert Roka_ **- Publication Year:** _Unknown_
+- **Title:** _Kika_ **- Author:** _Author Unknown_ **- Publication Year:** _Unknown_
 
 ## Books grouped by author
-<details>
+<details open>
   <summary><strong>Bram Stoker</strong> (1)</summary>
 
-  - Drácula | 1897
+  - Drácula - _1897_
 </details>
-
-<details>
+<details open>
   <summary><strong>Gabriel García Márquez</strong> (2)</summary>
 
-  - Cien años de soledad | 1967
-  - Crónica de una muerte anunciada | 1981
+  - Cien años de soledad - _1967_
+  - Crónica de una muerte anunciada - _1981_
 </details>
-
-<details>
+<details open>
   <summary><strong>George Orwell</strong> (1)</summary>
 
-  - 1984 | 1949
+  - 1984 - _1949_
 </details>
-
-<details>
+<details open>
   <summary><strong>Herman Melville</strong> (1)</summary>
 
-  - Moby Dick | 1851
+  - Moby Dick - _1851_
 </details>
-
-<details>
+<details open>
   <summary><strong>Isaac Asimov</strong> (2)</summary>
 
-  - Fundación | 0
-  - I Robot | 1950
+  - Fundación - _Unknown Publication Year_
+  - I Robot - _1950_
 </details>
-
-<details>
+<details open>
   <summary><strong>J.R.R. Tolkien</strong> (1)</summary>
 
-  - The Hobbit | 1937
+  - The Hobbit - _1937_
 </details>
-
-<details>
+<details open>
   <summary><strong>Jorge Luis Borges</strong> (2)</summary>
 
-  - El Aleph | 1945
-  - Ficciones | 1944
+  - El Aleph - _1945_
+  - Ficciones - _1944_
 </details>
-
-<details>
+<details open>
   <summary><strong>Julio Cortázar</strong> (1)</summary>
 
-  - Rayuela | 1963
+  - Rayuela - _1963_
 </details>
-
-<details>
+<details open>
   <summary><strong>Julio Robert</strong> (1)</summary>
 
-  - j | 1900
+  - j - _1900_
 </details>
-
-<details>
+<details open>
   <summary><strong>Mario Vargas Llosa</strong> (1)</summary>
 
-  - La ciudad y los perros | 0
+  - La ciudad y los perros - _Unknown Publication Year_
 </details>
-
-<details>
+<details open>
   <summary><strong>Mary Shelley</strong> (1)</summary>
 
-  - Frankenstein | 1818
+  - Frankenstein - _1818_
 </details>
-
-<details>
+<details open>
   <summary><strong>Miguel de Cervantes</strong> (1)</summary>
 
-  - Don Quijote de la Mancha | 1605
+  - Don Quijote de la Mancha - _1605_
 </details>
-
-<details>
+<details open>
   <summary><strong>Neal Stephenson</strong> (1)</summary>
 
-  - Snow Crash | 0
+  - Snow Crash - _Unknown Publication Year_
 </details>
-
-<details>
+<details open>
   <summary><strong>Philip K. Dick</strong> (1)</summary>
 
-  - Do Androids Dream of Electric Sheep? | 1968
+  - Do Androids Dream of Electric Sheep? - _1968_
 </details>
-
-<details>
+<details open>
   <summary><strong>Plato</strong> (1)</summary>
 
-  - The Republic | 0
+  - The Republic - _Unknown Publication Year_
 </details>
-
-<details>
+<details open>
   <summary><strong>René Descartes</strong> (2)</summary>
 
-  - Discurso del método | 1637
-  - Meditaciones metafísicas | 1641
+  - Discurso del método - _1637_
+  - Meditaciones metafísicas - _1641_
 </details>
-
-<details>
+<details open>
   <summary><strong>Robert Roka</strong> (1)</summary>
 
-  - Juanza | 0
+  - Juanza - _Unknown Publication Year_
 </details>
-
-<details>
+<details open>
   <summary><strong>Stanislaw Lem</strong> (1)</summary>
 
-  - Solaris | 2025
+  - Solaris - _2025_
 </details>
-
-<details>
+<details open>
   <summary><strong>Stephen King</strong> (1)</summary>
 
-  - El resplandor | 0
+  - El resplandor - _Unknown Publication Year_
 </details>
-
-<details>
+<details open>
   <summary><strong>Ursula K. Le Guin</strong> (1)</summary>
 
-  - The Left Hand of Darkness | 1969
+  - The Left Hand of Darkness - _1969_
 </details>
-
-<details>
+<details open>
   <summary><strong>William Gibson</strong> (1)</summary>
 
-  - Neuromante | 1984
+  - Neuromante - _1984_
 </details>
 
-## Books grouped by publication year (And missing author)
-<details>
-  <summary><strong>Unknown Publication Year</strong> (1)</summary>
+## Books grouped by publication year (With missing author)
+<details open>
+  <summary><strong>Unknown Publication Year</strong> (2)</summary>
 
   - Kika
+  - e
 </details>
 
-<details>
+<details open>
   <summary><strong>1979</strong> (1)</summary>
 
   - Guía del autoestopista galáctico
 </details>
 
-<details>
+<details open>
   <summary><strong>1995</strong> (1)</summary>
 
   - Ensayo sobre la ceguera
 </details>
 
-<details>
+<details open>
   <summary><strong>2002</strong> (1)</summary>
 
   - Kafka on the Shore
