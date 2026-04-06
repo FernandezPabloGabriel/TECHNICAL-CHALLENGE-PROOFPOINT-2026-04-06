@@ -3,6 +3,7 @@ import csv
 from dataclasses import dataclass
 from datetime import datetime
 from enum import auto, Enum
+from operator import itemgetter, attrgetter
 
 
 @dataclass(frozen=False)
@@ -70,31 +71,41 @@ def group_books_by_author_or_publication_year(books: dict) -> tuple[dict, dict]:
     for book in books.values():
         if book.author != "Author Unknown":
             bookAuthor = book.author.casefold()
-            if bookAuthor not in groupedBooksAuthor:
-                groupedBooksAuthor[book.author] = []
-            groupedBooksAuthor[book.author].append(book)
+            groupedBooksAuthor.setdefault(bookAuthor, []).append(book)
+            # if bookAuthor not in groupedBooksAuthor:
+            #     groupedBooksAuthor[book.author] = []
+            # groupedBooksAuthor[book.author].append(book)
         else:
             bookPubYear = book.publication_year
-            if bookPubYear not in groupedBooksPubYear:
-                groupedBooksPubYear[bookPubYear] = []
-            groupedBooksPubYear[bookPubYear].append(book)
-    return groupedBooksAuthor, groupedBooksPubYear
+            groupedBooksPubYear.setdefault(bookPubYear, []).append(book)
+    
+    # Sorting by title and then by author
+    for author in groupedBooksAuthor:
+        groupedBooksAuthor[author].sort(key=attrgetter("title"))
+    sortedGroupedBooksAuthor = dict(sorted(groupedBooksAuthor.items(), key=itemgetter(0))) # Remember that authors arent casefolded
+
+    # Sorting by title and then by publication year
+    for pubYear in groupedBooksPubYear:
+        groupedBooksPubYear[pubYear].sort(key=attrgetter("title"))
+    sortedGroupedBooksPubYear = dict(sorted(groupedBooksPubYear.items(), key=itemgetter(0)))
+
+    return sortedGroupedBooksAuthor, sortedGroupedBooksPubYear
 
 
-def read_csv(FILE_PATH: str, booksSet: dict):
+def read_csv(FILE_PATH: str, booksSet: dict) -> None | dict:
     with open(FILE_PATH, mode="r", encoding="utf-8") as file:
         fileReader = csv.reader(file)
         ### COULD GO A CONDITIONAL TO CHECK IF THERE IS A HEADER
         fileReader.__next__()  # Skip header
 
-        countIncomingRecords = 0
+        countIncomingBooks = 0
         countAddedBooks = 0
         countDiscardedBooks = 0
         countDiscardedDuplicateBooks = 0
         countEnrichedDuplicateBooks = 0
         
         for row in fileReader:
-            countIncomingRecords += 1
+            countIncomingBooks += 1
             title=row[0].strip()
             author=row[1].strip()
             pubYear=row[2].strip()
@@ -108,76 +119,71 @@ def read_csv(FILE_PATH: str, booksSet: dict):
                     countEnrichedDuplicateBooks += 1
                 else:
                     countDiscardedDuplicateBooks += 1
+                print(f"{book.title} | {book.author} | {book.publication_year}")
             else:
                 countDiscardedBooks += 1
-                        
         
-        print(f"\nTotal incoming records: {countIncomingRecords}")
+        print(f"\nTotal incoming books: {countIncomingBooks}")
         print(f"Total books added: {countAddedBooks}")
         print(f"Total books discarded: {countDiscardedBooks}")
         print(f"Total books duplicated and discarded: {countDiscardedDuplicateBooks}")
         print(f"Total books duplicated and enriched: {countEnrichedDuplicateBooks}")
         print(f"Integrity check: {countAddedBooks + countDiscardedBooks + countDiscardedDuplicateBooks + countEnrichedDuplicateBooks}")
-            
 
+        metrics = {
+            "incoming_books": countIncomingBooks,
+            "added_books": countAddedBooks,
+            "discarded_books": countDiscardedBooks,
+            "discarded_duplicate_books": countDiscardedDuplicateBooks,
+            "enriched_duplicate_books": countEnrichedDuplicateBooks
+        }
+
+        return metrics
+        
+        
 def md_escape(text: str) -> str:
+    text = str(text) # Ensure the input is a string
     return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def generate_report_md(groupedBooksAuthor, groupedBooksPubYear) -> str:
-    books = list(booksSet.values())
-
-    # Resumen
-    total = len(books)
-    missing_author = sum(1 for b in books if b.author == "Author Unknown")
-    missing_year = sum(1 for b in books if b.publication_year == 0)
-
-    # Agrupar (ideal: arreglar tu grouping para que use keys consistentes)
-    by_author = {}
-    by_year = {}
-    for b in books:
-        if b.author != "Author Unknown":
-            by_author.setdefault(b.author, []).append(b)
-        if b.publication_year != 0:
-            by_year.setdefault(b.publication_year, []).append(b)
-
-    # Orden “bonito”
-    for a in by_author:
-        by_author[a].sort(key=lambda x: (x.publication_year or 99999, x.title))
-    for y in by_year:
-        by_year[y].sort(key=lambda x: (x.author, x.title))
-
+def generate_report_md(groupedBooksAuthor: dict, groupedBooksPubYear: dict, metrics: dict) -> str:
     lines = []
-    lines.append("# Reporte de libros")
+    lines.append("# Library's Books Report")
     lines.append("")
-    lines.append(f"_Generado: {datetime.now().date()}_")
+    lines.append(f"_Generated in: {datetime.now().date()}_")
     lines.append("")
-    lines.append("## Resumen")
-    lines.append(f"- Total únicos: {total}")
-    lines.append(f"- Sin autor: {missing_author}")
-    lines.append(f"- Sin año: {missing_year}")
+    lines.append("## Metrics")
+    lines.append(f"From the given csv file, the following metrics were obtained:")
+    lines.append(f"- Total of processed books (rows): {metrics['incoming_books']}")
+    lines.append(f"- Total of added books: {metrics['added_books']}")
+    lines.append(f"- Total of discarded books: {metrics['discarded_books']}")
+    lines.append(f"- Total of duplicated and discarded books: {metrics['discarded_duplicate_books']}")
+    lines.append(f"- Duplicated books used to enrich previously registered books: {metrics['enriched_duplicate_books']}")
     lines.append("")
-    lines.append("## Agrupados por autor")
+    lines.append("## Books grouped by author")
 
-    for author in sorted(by_author.keys(), key=str.casefold):
-        items = by_author[author]
+    for author in groupedBooksAuthor:
         lines.append("<details>")
-        lines.append(f"  <summary><strong>{md_escape(author)}</strong> ({len(items)})</summary>")
+        booksFromAuthor = groupedBooksAuthor[author]
+        caseSensitiveAuthor = booksFromAuthor[0].author
+        lines.append(f"  <summary><strong>{md_escape(caseSensitiveAuthor)}</strong> ({len(booksFromAuthor)})</summary>")
         lines.append("")
-        for b in items:
-            year = b.publication_year if b.publication_year != 0 else "s/año"
-            lines.append(f"  - {md_escape(b.title)} ({year})")
+        for book in booksFromAuthor:
+            lines.append(f"  - {md_escape(book.title)} | {book.publication_year}")
         lines.append("</details>")
         lines.append("")
 
-    lines.append("## Agrupados por año")
-    for year in sorted(by_year.keys()):
-        items = by_year[year]
+    lines.append("## Books grouped by publication year (And missing author)")
+    for pubYear in groupedBooksPubYear:
         lines.append("<details>")
-        lines.append(f"  <summary><strong>{year}</strong> ({len(items)})</summary>")
+        booksFromPubYear = groupedBooksPubYear[pubYear]
+        if pubYear == 0:
+            lines.append(f"  <summary><strong>Unknown Publication Year</strong> ({len(booksFromPubYear)})</summary>")
+        else:
+            lines.append(f"  <summary><strong>{md_escape(pubYear)}</strong> ({len(booksFromPubYear)})</summary>")
         lines.append("")
-        for b in items:
-            lines.append(f"  - {md_escape(b.title)} — {md_escape(b.author)}")
+        for book in booksFromPubYear:
+            lines.append(f"  - {md_escape(book.title)}")
         lines.append("</details>")
         lines.append("")
 
@@ -190,9 +196,8 @@ def generate_report_md(groupedBooksAuthor, groupedBooksPubYear) -> str:
 def main():
     # Lector de csv
     FILE_PATH = "books.csv"
-    booksSet = {} # Using a set to avoid duplicates
-    read_csv(FILE_PATH, booksSet)
-    
+    booksSet = {}
+    metrics = read_csv(FILE_PATH, booksSet)
     groupedBooksAuthor, groupedBooksPubYear = group_books_by_author_or_publication_year(booksSet)
     print("\nBooks grouped by author:")
     for author, books in groupedBooksAuthor.items():
@@ -205,9 +210,9 @@ def main():
         for book in books:
             print(f"  - {book.title}")
 
-    # report_md = generate_report_md(groupedBooksAuthor, groupedBooksPubYear)
-    # with open("report.md", "w", encoding="utf-8") as f:
-    #     f.write(report_md)
+    report_md = generate_report_md(groupedBooksAuthor, groupedBooksPubYear, metrics)
+    with open("report.md", "w", encoding="utf-8") as f:
+        f.write(report_md)
     
     # mostrar resultados en .md
     # mostrar registros descartados, ingresados, duplicados, egresados, registros sin autor, registros sin año
