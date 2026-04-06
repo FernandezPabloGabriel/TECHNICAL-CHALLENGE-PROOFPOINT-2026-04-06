@@ -93,16 +93,12 @@ def group_books_by_author_or_publication_year(books: dict) -> tuple[dict, dict]:
     # Sorting by title and then by author
     for author in groupedBooksAuthor:
         groupedBooksAuthor[author].sort(key=attrgetter("title"))
-    sortedGroupedBooksAuthor = dict(sorted(groupedBooksAuthor.items(), key=itemgetter(0))) # Remember that authors arent casefolded
+    sortedGroupedBooksAuthor = dict(sorted(groupedBooksAuthor.items(), key=itemgetter(0)))
 
     # Sorting by title and then by publication year
     for pubYear in groupedBooksPubYear:
         groupedBooksPubYear[pubYear].sort(key=attrgetter("title"))
     sortedGroupedBooksPubYear = dict(sorted(groupedBooksPubYear.items(), key=itemgetter(0)))
-
-    # Sorting by title
-    books = dict(sorted(books.items(), key=itemgetter(0)))
-        
 
     return sortedGroupedBooksAuthor, sortedGroupedBooksPubYear
 
@@ -187,6 +183,8 @@ def generate_report_md(booksDict: dict, groupedBooksAuthor: dict, groupedBooksPu
     lines.append(f"- **Duplicated books used to enrich previously registered books:** _{metrics['enriched_duplicate_books']}_")
     lines.append("")
 
+    # with item() we get a list of tuples (key=title, value=Book) that is later sorted by the key=itemgetter(0) (title)
+    booksDict = dict(sorted(booksDict.items(), key=itemgetter(0)))
     lines.append("## Books catalog")
     for book in booksDict.values():
         if book.publication_year != 0:

@@ -11,36 +11,36 @@ From the given csv file, the following metrics were obtained:
 - **Duplicated books used to enrich previously registered books:** _1_
 
 ## Books catalog
+- **Title:** _1984_ **- Author:** _George Orwell_ **- Publication Year:** _1949_
 - **Title:** _Cien años de soledad_ **- Author:** _Gabriel García Márquez_ **- Publication Year:** _1967_
+- **Title:** _Crónica de una muerte anunciada_ **- Author:** _Gabriel García Márquez_ **- Publication Year:** _1981_
+- **Title:** _Discurso del método_ **- Author:** _René Descartes_ **- Publication Year:** _1637_
+- **Title:** _Do Androids Dream of Electric Sheep?_ **- Author:** _Philip K. Dick_ **- Publication Year:** _1968_
+- **Title:** _Don Quijote de la Mancha_ **- Author:** _Miguel de Cervantes_ **- Publication Year:** _1605_
+- **Title:** _Drácula_ **- Author:** _Bram Stoker_ **- Publication Year:** _1897_
 - **Title:** _e_ **- Author:** _Author Unknown_ **- Publication Year:** _Unknown_
 - **Title:** _El Aleph_ **- Author:** _Jorge Luis Borges_ **- Publication Year:** _1945_
-- **Title:** _1984_ **- Author:** _George Orwell_ **- Publication Year:** _1949_
-- **Title:** _The Republic_ **- Author:** _Plato_ **- Publication Year:** _Unknown_
-- **Title:** _Ficciones_ **- Author:** _Jorge Luis Borges_ **- Publication Year:** _1944_
-- **Title:** _Rayuela_ **- Author:** _Julio Cortázar_ **- Publication Year:** _1963_
-- **Title:** _Don Quijote de la Mancha_ **- Author:** _Miguel de Cervantes_ **- Publication Year:** _1605_
-- **Title:** _Guía del autoestopista galáctico_ **- Author:** _Author Unknown_ **- Publication Year:** _1979_
-- **Title:** _Fundación_ **- Author:** _Isaac Asimov_ **- Publication Year:** _Unknown_
 - **Title:** _El resplandor_ **- Author:** _Stephen King_ **- Publication Year:** _Unknown_
-- **Title:** _Neuromante_ **- Author:** _William Gibson_ **- Publication Year:** _1984_
-- **Title:** _Snow Crash_ **- Author:** _Neal Stephenson_ **- Publication Year:** _Unknown_
-- **Title:** _I Robot_ **- Author:** _Isaac Asimov_ **- Publication Year:** _1950_
-- **Title:** _La ciudad y los perros_ **- Author:** _Mario Vargas Llosa_ **- Publication Year:** _Unknown_
-- **Title:** _Crónica de una muerte anunciada_ **- Author:** _Gabriel García Márquez_ **- Publication Year:** _1981_
-- **Title:** _Solaris_ **- Author:** _Stanislaw Lem_ **- Publication Year:** _2025_
-- **Title:** _Moby Dick_ **- Author:** _Herman Melville_ **- Publication Year:** _1851_
-- **Title:** _The Hobbit_ **- Author:** _J.R.R. Tolkien_ **- Publication Year:** _1937_
-- **Title:** _Kafka on the Shore_ **- Author:** _Author Unknown_ **- Publication Year:** _2002_
-- **Title:** _Discurso del método_ **- Author:** _René Descartes_ **- Publication Year:** _1637_
-- **Title:** _Meditaciones metafísicas_ **- Author:** _René Descartes_ **- Publication Year:** _1641_
 - **Title:** _Ensayo sobre la ceguera_ **- Author:** _Author Unknown_ **- Publication Year:** _1995_
-- **Title:** _The Left Hand of Darkness_ **- Author:** _Ursula K. Le Guin_ **- Publication Year:** _1969_
-- **Title:** _Do Androids Dream of Electric Sheep?_ **- Author:** _Philip K. Dick_ **- Publication Year:** _1968_
+- **Title:** _Ficciones_ **- Author:** _Jorge Luis Borges_ **- Publication Year:** _1944_
 - **Title:** _Frankenstein_ **- Author:** _Mary Shelley_ **- Publication Year:** _1818_
-- **Title:** _Drácula_ **- Author:** _Bram Stoker_ **- Publication Year:** _1897_
+- **Title:** _Fundación_ **- Author:** _Isaac Asimov_ **- Publication Year:** _Unknown_
+- **Title:** _Guía del autoestopista galáctico_ **- Author:** _Author Unknown_ **- Publication Year:** _1979_
+- **Title:** _I Robot_ **- Author:** _Isaac Asimov_ **- Publication Year:** _1950_
 - **Title:** _j_ **- Author:** _Julio Robert_ **- Publication Year:** _1900_
 - **Title:** _Juanza_ **- Author:** _Robert Roka_ **- Publication Year:** _Unknown_
+- **Title:** _Kafka on the Shore_ **- Author:** _Author Unknown_ **- Publication Year:** _2002_
 - **Title:** _Kika_ **- Author:** _Author Unknown_ **- Publication Year:** _Unknown_
+- **Title:** _La ciudad y los perros_ **- Author:** _Mario Vargas Llosa_ **- Publication Year:** _Unknown_
+- **Title:** _Meditaciones metafísicas_ **- Author:** _René Descartes_ **- Publication Year:** _1641_
+- **Title:** _Moby Dick_ **- Author:** _Herman Melville_ **- Publication Year:** _1851_
+- **Title:** _Neuromante_ **- Author:** _William Gibson_ **- Publication Year:** _1984_
+- **Title:** _Rayuela_ **- Author:** _Julio Cortázar_ **- Publication Year:** _1963_
+- **Title:** _Snow Crash_ **- Author:** _Neal Stephenson_ **- Publication Year:** _Unknown_
+- **Title:** _Solaris_ **- Author:** _Stanislaw Lem_ **- Publication Year:** _2025_
+- **Title:** _The Hobbit_ **- Author:** _J.R.R. Tolkien_ **- Publication Year:** _1937_
+- **Title:** _The Left Hand of Darkness_ **- Author:** _Ursula K. Le Guin_ **- Publication Year:** _1969_
+- **Title:** _The Republic_ **- Author:** _Plato_ **- Publication Year:** _Unknown_
 
 ## Books grouped by author
 <details open>
